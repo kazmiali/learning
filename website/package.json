@@ -1,0 +1,28 @@
+{
+  "name": "website",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "prebuild": "node scripts/generate-docs-json.cjs && node scripts/copy-docs.cjs",
+    "build": "npm run prebuild && vue-tsc -b && vite build",
+    "deploy": "node scripts/deploy-github-pages.cjs",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "fs-extra": "^11.3.3",
+    "marked": "^17.0.1",
+    "vue": "^3.5.24",
+    "vue-router": "^4.6.4"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/tsconfig": "^0.8.1",
+    "gh-pages": "^6.3.0",
+    "typescript": "~5.9.3",
+    "vite": "^7.2.4",
+    "vue-tsc": "^3.1.4"
+  }
+}

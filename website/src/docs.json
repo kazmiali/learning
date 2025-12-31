@@ -1,0 +1,566 @@
+{
+  "name": "docs",
+  "type": "directory",
+  "children": [
+    {
+      "name": "databases",
+      "type": "directory",
+      "children": [
+        {
+          "name": "mongodb",
+          "type": "directory",
+          "children": [
+            {
+              "name": "01-basics.md",
+              "type": "file"
+            },
+            {
+              "name": "02-crud-operations.md",
+              "type": "file"
+            },
+            {
+              "name": "03-aggregation.md",
+              "type": "file"
+            },
+            {
+              "name": "04-indexing.md",
+              "type": "file"
+            },
+            {
+              "name": "code-examples",
+              "type": "directory",
+              "children": []
+            },
+            {
+              "name": "exercises",
+              "type": "directory",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "mysql",
+          "type": "directory",
+          "children": [
+            {
+              "name": "01-basics.md",
+              "type": "file"
+            },
+            {
+              "name": "02-relationships.md",
+              "type": "file"
+            },
+            {
+              "name": "code-examples",
+              "type": "directory",
+              "children": []
+            },
+            {
+              "name": "exercises",
+              "type": "directory",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "postgresql",
+          "type": "directory",
+          "children": [
+            {
+              "name": "01-basics.md",
+              "type": "file"
+            },
+            {
+              "name": "02-advanced-queries.md",
+              "type": "file"
+            },
+            {
+              "name": "03-optimization.md",
+              "type": "file"
+            },
+            {
+              "name": "code-examples",
+              "type": "directory",
+              "children": []
+            },
+            {
+              "name": "exercises",
+              "type": "directory",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "javascript",
+      "type": "directory",
+      "children": [
+        {
+          "name": "01-fundamentals.md",
+          "type": "file"
+        },
+        {
+          "name": "02-closures-prototypes.md",
+          "type": "file"
+        },
+        {
+          "name": "03-this-keyword.md",
+          "type": "file"
+        },
+        {
+          "name": "04-async-programming.md",
+          "type": "file"
+        },
+        {
+          "name": "05-es6-modern-features.md",
+          "type": "file"
+        },
+        {
+          "name": "06-oop-classes.md",
+          "type": "file"
+        },
+        {
+          "name": "07-functional-programming.md",
+          "type": "file"
+        },
+        {
+          "name": "08-js-engine-runtime.md",
+          "type": "file"
+        },
+        {
+          "name": "09-error-handling.md",
+          "type": "file"
+        },
+        {
+          "name": "10-performance-best-practices.md",
+          "type": "file"
+        },
+        {
+          "name": "11-design-patterns.md",
+          "type": "file"
+        },
+        {
+          "name": "12-module-systems.md",
+          "type": "file"
+        },
+        {
+          "name": "13-advanced-methods.md",
+          "type": "file"
+        },
+        {
+          "name": "code-examples",
+          "type": "directory",
+          "children": []
+        },
+        {
+          "name": "exercises",
+          "type": "directory",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "nestjs",
+      "type": "directory",
+      "children": [
+        {
+          "name": "01-getting-started.md",
+          "type": "file"
+        },
+        {
+          "name": "02-modules-controllers.md",
+          "type": "file"
+        },
+        {
+          "name": "03-services-providers.md",
+          "type": "file"
+        },
+        {
+          "name": "04-database-integration.md",
+          "type": "file"
+        },
+        {
+          "name": "05-authentication.md",
+          "type": "file"
+        },
+        {
+          "name": "06-testing.md",
+          "type": "file"
+        },
+        {
+          "name": "code-examples",
+          "type": "directory",
+          "children": []
+        },
+        {
+          "name": "exercises",
+          "type": "directory",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "nextjs",
+      "type": "directory",
+      "children": [
+        {
+          "name": "01-getting-started.md",
+          "type": "file"
+        },
+        {
+          "name": "02-pages-routing.md",
+          "type": "file"
+        },
+        {
+          "name": "03-api-routes.md",
+          "type": "file"
+        },
+        {
+          "name": "04-data-fetching.md",
+          "type": "file"
+        },
+        {
+          "name": "05-styling.md",
+          "type": "file"
+        },
+        {
+          "name": "06-deployment.md",
+          "type": "file"
+        },
+        {
+          "name": "07-advanced-features.md",
+          "type": "file"
+        },
+        {
+          "name": "code-examples",
+          "type": "directory",
+          "children": []
+        },
+        {
+          "name": "projects",
+          "type": "directory",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "nodejs",
+      "type": "directory",
+      "children": [
+        {
+          "name": "01-basics.md",
+          "type": "file"
+        },
+        {
+          "name": "02-express-framework.md",
+          "type": "file"
+        },
+        {
+          "name": "03-middleware.md",
+          "type": "file"
+        },
+        {
+          "name": "04-database-integration.md",
+          "type": "file"
+        },
+        {
+          "name": "05-authentication.md",
+          "type": "file"
+        },
+        {
+          "name": "06-api-design.md",
+          "type": "file"
+        },
+        {
+          "name": "07-deployment.md",
+          "type": "file"
+        },
+        {
+          "name": "code-examples",
+          "type": "directory",
+          "children": []
+        },
+        {
+          "name": "exercises",
+          "type": "directory",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "python",
+      "type": "directory",
+      "children": [
+        {
+          "name": "django",
+          "type": "directory",
+          "children": [
+            {
+              "name": "01-getting-started.md",
+              "type": "file"
+            },
+            {
+              "name": "02-models-databases.md",
+              "type": "file"
+            },
+            {
+              "name": "03-admin-interface.md",
+              "type": "file"
+            },
+            {
+              "name": "04-views-urls.md",
+              "type": "file"
+            },
+            {
+              "name": "05-templates.md",
+              "type": "file"
+            },
+            {
+              "name": "06-forms.md",
+              "type": "file"
+            },
+            {
+              "name": "07-authentication.md",
+              "type": "file"
+            },
+            {
+              "name": "08-rest-framework.md",
+              "type": "file"
+            },
+            {
+              "name": "09-deployment.md",
+              "type": "file"
+            },
+            {
+              "name": "code-examples",
+              "type": "directory",
+              "children": []
+            },
+            {
+              "name": "projects",
+              "type": "directory",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "fastapi",
+          "type": "directory",
+          "children": [
+            {
+              "name": "01-getting-started.md",
+              "type": "file"
+            },
+            {
+              "name": "02-path-parameters.md",
+              "type": "file"
+            },
+            {
+              "name": "03-request-body-models.md",
+              "type": "file"
+            },
+            {
+              "name": "04-authentication-security.md",
+              "type": "file"
+            },
+            {
+              "name": "05-database-integration.md",
+              "type": "file"
+            },
+            {
+              "name": "06-testing.md",
+              "type": "file"
+            },
+            {
+              "name": "07-deployment.md",
+              "type": "file"
+            },
+            {
+              "name": "code-examples",
+              "type": "directory",
+              "children": []
+            },
+            {
+              "name": "projects",
+              "type": "directory",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "flask",
+          "type": "directory",
+          "children": [
+            {
+              "name": "01-getting-started.md",
+              "type": "file"
+            },
+            {
+              "name": "02-routing-views.md",
+              "type": "file"
+            },
+            {
+              "name": "03-templates.md",
+              "type": "file"
+            },
+            {
+              "name": "04-forms-validation.md",
+              "type": "file"
+            },
+            {
+              "name": "05-database-integration.md",
+              "type": "file"
+            },
+            {
+              "name": "06-authentication.md",
+              "type": "file"
+            },
+            {
+              "name": "07-rest-apis.md",
+              "type": "file"
+            },
+            {
+              "name": "08-deployment.md",
+              "type": "file"
+            },
+            {
+              "name": "code-examples",
+              "type": "directory",
+              "children": []
+            },
+            {
+              "name": "projects",
+              "type": "directory",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "react",
+      "type": "directory",
+      "children": [
+        {
+          "name": "01-components-props.md",
+          "type": "file"
+        },
+        {
+          "name": "02-state-lifecycle.md",
+          "type": "file"
+        },
+        {
+          "name": "03-hooks.md",
+          "type": "file"
+        },
+        {
+          "name": "04-routing.md",
+          "type": "file"
+        },
+        {
+          "name": "05-state-management.md",
+          "type": "file"
+        },
+        {
+          "name": "06-performance.md",
+          "type": "file"
+        },
+        {
+          "name": "07-testing.md",
+          "type": "file"
+        },
+        {
+          "name": "code-examples",
+          "type": "directory",
+          "children": []
+        },
+        {
+          "name": "exercises",
+          "type": "directory",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "remixjs",
+      "type": "directory",
+      "children": [
+        {
+          "name": "01-getting-started.md",
+          "type": "file"
+        },
+        {
+          "name": "02-routing-loaders.md",
+          "type": "file"
+        },
+        {
+          "name": "03-actions-forms.md",
+          "type": "file"
+        },
+        {
+          "name": "04-data-fetching.md",
+          "type": "file"
+        },
+        {
+          "name": "05-error-handling.md",
+          "type": "file"
+        },
+        {
+          "name": "06-styling.md",
+          "type": "file"
+        },
+        {
+          "name": "07-deployment.md",
+          "type": "file"
+        },
+        {
+          "name": "code-examples",
+          "type": "directory",
+          "children": []
+        },
+        {
+          "name": "projects",
+          "type": "directory",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "typescript",
+      "type": "directory",
+      "children": [
+        {
+          "name": "01-basics-types.md",
+          "type": "file"
+        },
+        {
+          "name": "02-advanced-types.md",
+          "type": "file"
+        },
+        {
+          "name": "03-generics-interfaces.md",
+          "type": "file"
+        },
+        {
+          "name": "04-configuration.md",
+          "type": "file"
+        },
+        {
+          "name": "05-migration-js-to-ts.md",
+          "type": "file"
+        },
+        {
+          "name": "code-examples",
+          "type": "directory",
+          "children": []
+        },
+        {
+          "name": "exercises",
+          "type": "directory",
+          "children": []
+        }
+      ]
+    }
+  ]
+}
