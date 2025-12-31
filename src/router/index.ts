@@ -2,6 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 import DocView from '../views/DocView.vue';
 
+const isProduction = import.meta.env.MODE === 'production';
+const routerBase = isProduction ? '/learning/' : '/';
+
 const routes = [
   {
     path: '/',
@@ -24,7 +27,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(routerBase),
   routes,
 });
 
