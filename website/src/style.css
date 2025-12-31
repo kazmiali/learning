@@ -1,79 +1,142 @@
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  line-height: 1.6;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #2c3e50;
+  background-color: #e8ecf1;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --neomorph-bg: #e8ecf1;
+  --neomorph-shadow-light: #ffffff;
+  --neomorph-shadow-dark: #c4c9d0;
+  --neomorph-text: #2c3e50;
+  --neomorph-text-muted: #6c757d;
+  --neomorph-accent: #4a90e2;
+  --neomorph-accent-hover: #357abd;
+  --neomorph-accent-light: #e3f2fd;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+* {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
 
+a {
+  font-weight: 500;
+  color: var(--neomorph-accent);
+  text-decoration: inherit;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--neomorph-accent-hover);
+}
+
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 2.5em;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 2em;
+  margin-bottom: 1.25rem;
+}
+
+h3 {
+  font-size: 1.5em;
+  margin-bottom: 1rem;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  border-radius: 12px;
+  border: none;
+  padding: 0.8em 1.6em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--neomorph-bg);
+  color: var(--neomorph-text);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 0.2s ease;
+  box-shadow: 6px 6px 12px var(--neomorph-shadow-dark),
+              -6px -6px 12px var(--neomorph-shadow-light);
 }
+
 button:hover {
-  border-color: #646cff;
+  box-shadow: 4px 4px 8px var(--neomorph-shadow-dark),
+              -4px -4px 8px var(--neomorph-shadow-light);
 }
+
+button:active {
+  box-shadow: inset 4px 4px 8px var(--neomorph-shadow-dark),
+              inset -4px -4px 8px var(--neomorph-shadow-light);
+}
+
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 2px solid var(--neomorph-accent);
+  outline-offset: 2px;
 }
 
 .card {
   padding: 2em;
+  border-radius: 20px;
+  background-color: var(--neomorph-bg);
+  box-shadow: 8px 8px 16px var(--neomorph-shadow-dark),
+              -8px -8px 16px var(--neomorph-shadow-light);
 }
 
 #app {
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 0;
+  min-height: 100vh;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.neomorph-flat {
+  background-color: var(--neomorph-bg);
+  box-shadow: 6px 6px 12px var(--neomorph-shadow-dark),
+              -6px -6px 12px var(--neomorph-shadow-light);
+  border-radius: 16px;
+}
+
+.neomorph-pressed {
+  background-color: var(--neomorph-bg);
+  box-shadow: inset 4px 4px 8px var(--neomorph-shadow-dark),
+              inset -4px -4px 8px var(--neomorph-shadow-light);
+  border-radius: 16px;
+}
+
+.neomorph-btn {
+  border: none;
+  background-color: var(--neomorph-bg);
+  color: var(--neomorph-text);
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 5px 5px 10px var(--neomorph-shadow-dark),
+              -5px -5px 10px var(--neomorph-shadow-light);
+}
+
+.neomorph-btn:hover {
+  box-shadow: 3px 3px 6px var(--neomorph-shadow-dark),
+              -3px -3px 6px var(--neomorph-shadow-light);
+}
+
+.neomorph-btn:active {
+  box-shadow: inset 3px 3px 6px var(--neomorph-shadow-dark),
+              inset -3px -3px 6px var(--neomorph-shadow-light);
 }

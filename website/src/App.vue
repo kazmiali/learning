@@ -1,13 +1,16 @@
 <template>
   <div id="app">
-    <header>
+    <header class="neomorph-header">
       <nav>
-        <router-link to="/" class="nav-brand">Documentation</router-link>
+        <router-link to="/" class="nav-brand neomorph-brand">
+          <span class="brand-icon">📚</span>
+          <span>Documentation</span>
+        </router-link>
         <div class="nav-spacer"></div>
-        <router-link to="/">Home</router-link>
+        <router-link to="/" class="neomorph-nav-link">Home</router-link>
       </nav>
     </header>
-    <main>
+    <main class="neomorph-main">
       <router-view />
     </main>
   </div>
@@ -17,80 +20,114 @@
 </script>
 
 <style>
-* {
-  box-sizing: border-box;
-}
-
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #f8f9fa;
+  background-color: var(--neomorph-bg);
 }
 
 #app {
-  color: #2c3e50;
+  color: var(--neomorph-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
-  background-color: white;
-  border-bottom: 1px solid #e1e5e9;
-  padding: 0 2rem;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.neomorph-header {
+  background-color: var(--neomorph-bg);
+  box-shadow: 0 4px 8px var(--neomorph-shadow-dark),
+              0 -4px 8px var(--neomorph-shadow-light);
 }
 
 nav {
   display: flex;
   align-items: center;
-  height: 60px;
-  max-width: 1200px;
+  height: 70px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
 .nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-weight: 600;
-  font-size: 1.2rem;
-  color: #2c3e50;
+  font-size: 1.3rem;
+  color: var(--neomorph-text);
   text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.neomorph-brand {
+  background-color: var(--neomorph-bg);
+  box-shadow: 5px 5px 10px var(--neomorph-shadow-dark),
+              -5px -5px 10px var(--neomorph-shadow-light);
+}
+
+.neomorph-brand:hover {
+  box-shadow: 3px 3px 6px var(--neomorph-shadow-dark),
+              -3px -3px 6px var(--neomorph-shadow-light);
+  transform: translateY(-2px);
+}
+
+.brand-icon {
+  font-size: 1.5rem;
 }
 
 .nav-spacer {
   flex-grow: 1;
 }
 
-nav a {
+.neomorph-nav-link {
   font-weight: 500;
-  color: #6c757d;
+  color: var(--neomorph-text);
   text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: color 0.2s, background-color 0.2s;
+  padding: 12px 28px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  background-color: var(--neomorph-bg);
+  box-shadow: 5px 5px 10px var(--neomorph-shadow-dark),
+              -5px -5px 10px var(--neomorph-shadow-light);
 }
 
-nav a:hover {
-  color: #2c3e50;
-  background-color: #f8f9fa;
+.neomorph-nav-link:hover {
+  box-shadow: 3px 3px 6px var(--neomorph-shadow-dark),
+              -3px -3px 6px var(--neomorph-shadow-light);
+  color: var(--neomorph-accent);
+  transform: translateY(-2px);
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+.neomorph-nav-link.router-link-exact-active {
+  box-shadow: inset 3px 3px 6px var(--neomorph-shadow-dark),
+              inset -3px -3px 6px var(--neomorph-shadow-light);
+  color: var(--neomorph-accent);
   font-weight: 600;
 }
 
 main {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 2rem;
+  flex: 1;
+  width: 100%;
 }
 
 h1 {
-  color: #2c3e50;
-  border-bottom: 2px solid #42b983;
+  color: var(--neomorph-text);
+  border-bottom: none;
+  background: linear-gradient(135deg, var(--neomorph-accent), #6ab0ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 2rem;
   padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
 }
 
 ul {
@@ -99,20 +136,27 @@ ul {
 }
 
 li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 li a {
-  display: block;
-  padding: 0.75rem 1rem;
-  color: #2c3e50;
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  color: var(--neomorph-text);
   text-decoration: none;
-  border-radius: 6px;
-  transition: background-color 0.2s, transform 0.1s;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  background-color: var(--neomorph-bg);
+  box-shadow: 6px 6px 12px var(--neomorph-shadow-dark),
+              -6px -6px 12px var(--neomorph-shadow-light);
+  font-weight: 500;
 }
 
 li a:hover {
-  background-color: #e8f5e8;
-  transform: translateX(4px);
+  box-shadow: 3px 3px 6px var(--neomorph-shadow-dark),
+              -3px -3px 6px var(--neomorph-shadow-light);
+  color: var(--neomorph-accent);
+  transform: translateX(8px);
 }
 </style>

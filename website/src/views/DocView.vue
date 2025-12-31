@@ -119,80 +119,112 @@ watch(() => route.params.path, updateContent, { immediate: true });
 <style scoped>
 .breadcrumbs {
   margin-bottom: 2rem;
-  padding: 0.75rem 1rem;
-  background-color: #f8f9fa;
-  border-radius: 6px;
-  font-size: 0.9rem;
+  padding: 1rem 1.5rem;
+  background-color: var(--neomorph-bg);
+  box-shadow: inset 4px 4px 8px var(--neomorph-shadow-dark),
+              inset -4px -4px 8px var(--neomorph-shadow-light);
+  border-radius: 16px;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .breadcrumbs a {
-  color: #42b983;
+  color: var(--neomorph-accent);
   text-decoration: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  background-color: var(--neomorph-bg);
+  box-shadow: 3px 3px 6px var(--neomorph-shadow-dark),
+              -3px -3px 6px var(--neomorph-shadow-light);
 }
 
 .breadcrumbs a:hover {
-  text-decoration: underline;
+  box-shadow: inset 2px 2px 4px var(--neomorph-shadow-dark),
+              inset -2px -2px 4px var(--neomorph-shadow-light);
 }
 
 .separator {
-  margin: 0 0.5rem;
-  color: #6c757d;
+  color: var(--neomorph-text-muted);
+  font-weight: 600;
 }
 
 .current {
-  color: #2c3e50;
-  font-weight: 500;
+  color: var(--neomorph-text);
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
 }
 
 .directory-view {
-  background-color: white;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: var(--neomorph-bg);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 8px 8px 16px var(--neomorph-shadow-dark),
+              -8px -8px 16px var(--neomorph-shadow-light);
 }
 
 .file-list {
   display: grid;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .file-item {
-  border: 1px solid #e1e5e9;
-  border-radius: 6px;
+  border-radius: 16px;
   overflow: hidden;
 }
 
 .file-link {
   display: flex;
   align-items: center;
-  padding: 0.75rem 1rem;
+  padding: 1.25rem 1.5rem;
   text-decoration: none;
-  color: #2c3e50;
-  transition: background-color 0.2s;
+  color: var(--neomorph-text);
+  transition: all 0.3s ease;
+  background-color: var(--neomorph-bg);
+  box-shadow: 6px 6px 12px var(--neomorph-shadow-dark),
+              -6px -6px 12px var(--neomorph-shadow-light);
+  gap: 1rem;
 }
 
 .file-link:hover {
-  background-color: #f8f9fa;
+  box-shadow: 3px 3px 6px var(--neomorph-shadow-dark),
+              -3px -3px 6px var(--neomorph-shadow-light);
+  transform: translateX(8px);
 }
 
 .file-icon {
-  margin-right: 0.75rem;
-  font-size: 1.2rem;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background-color: var(--neomorph-bg);
+  box-shadow: inset 3px 3px 6px var(--neomorph-shadow-dark),
+              inset -3px -3px 6px var(--neomorph-shadow-light);
 }
 
 .file-name {
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 1.1rem;
+  flex: 1;
 }
 
 .file-view {
-  background-color: white;
-  border-radius: 8px;
-  padding: 2rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: var(--neomorph-bg);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 8px 8px 16px var(--neomorph-shadow-dark),
+              -8px -8px 16px var(--neomorph-shadow-light);
 }
 
 .markdown-content {
-  line-height: 1.6;
+  line-height: 1.8;
+  color: var(--neomorph-text);
 }
 
 .markdown-content :deep(h1),
@@ -201,74 +233,174 @@ watch(() => route.params.path, updateContent, { immediate: true });
 .markdown-content :deep(h4),
 .markdown-content :deep(h5),
 .markdown-content :deep(h6) {
-  color: #2c3e50;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  color: var(--neomorph-text);
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
+  font-weight: 600;
 }
 
 .markdown-content :deep(h1) {
-  border-bottom: 2px solid #42b983;
+  font-size: 2.2rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 3px solid var(--neomorph-accent);
+  background: linear-gradient(135deg, var(--neomorph-accent), #6ab0ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.markdown-content :deep(h2) {
+  font-size: 1.8rem;
   padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--neomorph-accent-light);
+}
+
+.markdown-content :deep(h3) {
+  font-size: 1.5rem;
+}
+
+.markdown-content :deep(p) {
+  margin-bottom: 1.25rem;
+}
+
+.markdown-content :deep(a) {
+  color: var(--neomorph-accent);
+  text-decoration: none;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.markdown-content :deep(a:hover) {
+  background-color: var(--neomorph-accent-light);
+  box-shadow: inset 2px 2px 4px var(--neomorph-shadow-dark),
+              inset -2px -2px 4px var(--neomorph-shadow-light);
 }
 
 .markdown-content :deep(code) {
-  background-color: #f1f3f4;
-  padding: 0.2rem 0.4rem;
-  border-radius: 3px;
+  background-color: var(--neomorph-bg);
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
   font-size: 0.9em;
+  color: var(--neomorph-accent);
+  box-shadow: inset 2px 2px 4px var(--neomorph-shadow-dark),
+              inset -2px -2px 4px var(--neomorph-shadow-light);
 }
 
 .markdown-content :deep(pre) {
-  background-color: #f8f9fa;
-  border: 1px solid #e1e5e9;
-  border-radius: 6px;
-  padding: 1rem;
+  background-color: var(--neomorph-bg);
+  border-radius: 16px;
+  padding: 1.5rem;
   overflow-x: auto;
+  box-shadow: inset 4px 4px 8px var(--neomorph-shadow-dark),
+              inset -4px -4px 8px var(--neomorph-shadow-light);
+  margin: 1.5rem 0;
+}
+
+.markdown-content :deep(pre code) {
+  background: none;
+  box-shadow: none;
+  padding: 0;
 }
 
 .markdown-content :deep(blockquote) {
-  border-left: 4px solid #42b983;
+  border-left: 4px solid var(--neomorph-accent);
+  margin: 1.5rem 0;
+  padding: 1rem 1.5rem;
+  color: var(--neomorph-text-muted);
+  background-color: var(--neomorph-bg);
+  border-radius: 0 12px 12px 0;
+  box-shadow: inset 4px 4px 8px var(--neomorph-shadow-dark),
+              inset -4px -4px 8px var(--neomorph-shadow-light);
+}
+
+.markdown-content :deep(ul),
+.markdown-content :deep(ol) {
   margin: 1rem 0;
-  padding-left: 1rem;
-  color: #6c757d;
+  padding-left: 2rem;
+}
+
+.markdown-content :deep(li) {
+  margin-bottom: 0.5rem;
 }
 
 .markdown-content :deep(table) {
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   width: 100%;
-  margin: 1rem 0;
+  margin: 1.5rem 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 4px 4px 8px var(--neomorph-shadow-dark),
+              -4px -4px 8px var(--neomorph-shadow-light);
 }
 
 .markdown-content :deep(th),
 .markdown-content :deep(td) {
-  border: 1px solid #e1e5e9;
-  padding: 0.5rem 1rem;
+  padding: 1rem 1.25rem;
   text-align: left;
+  border-bottom: 1px solid var(--neomorph-shadow-dark);
 }
 
 .markdown-content :deep(th) {
-  background-color: #f8f9fa;
+  background: linear-gradient(135deg, var(--neomorph-accent), #6ab0ff);
+  color: white;
   font-weight: 600;
+}
+
+.markdown-content :deep(tr:last-child td) {
+  border-bottom: none;
+}
+
+.markdown-content :deep(img) {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 6px 6px 12px var(--neomorph-shadow-dark),
+              -6px -6px 12px var(--neomorph-shadow-light);
+  margin: 1.5rem 0;
 }
 
 .not-found {
   text-align: center;
-  padding: 3rem;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 4rem 2rem;
+  background-color: var(--neomorph-bg);
+  border-radius: 20px;
+  box-shadow: 8px 8px 16px var(--neomorph-shadow-dark),
+              -8px -8px 16px var(--neomorph-shadow-light);
+}
+
+.not-found h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--neomorph-accent), #6ab0ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.not-found p {
+  color: var(--neomorph-text-muted);
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
 }
 
 .back-home {
   display: inline-block;
-  margin-top: 1rem;
-  color: #42b983;
+  padding: 1rem 2rem;
+  color: var(--neomorph-accent);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
+  background-color: var(--neomorph-bg);
+  box-shadow: 6px 6px 12px var(--neomorph-shadow-dark),
+              -6px -6px 12px var(--neomorph-shadow-light);
+  border-radius: 12px;
+  transition: all 0.3s ease;
 }
 
 .back-home:hover {
-  text-decoration: underline;
+  box-shadow: 3px 3px 6px var(--neomorph-shadow-dark),
+              -3px -3px 6px var(--neomorph-shadow-light);
+  transform: translateY(-2px);
 }
 </style>
