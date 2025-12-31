@@ -32,10 +32,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { onMounted } from 'vue';
 import docs from '../docs.json';
-
-const docsData = ref(docs);
 
 onMounted(() => {
   console.log('HomeView mounted with docs:', docs);

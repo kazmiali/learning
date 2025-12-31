@@ -103,7 +103,7 @@ async function updateContent() {
         throw new Error('File not found');
       }
       const markdown = await response.text();
-      markdownContent.value = marked(markdown);
+      markdownContent.value = await marked.parse(markdown);
     } catch (error) {
       console.error('Error fetching markdown:', error);
       markdownContent.value = '<p>Error loading file</p>';
