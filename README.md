@@ -17,7 +17,7 @@ This is my personal knowledge base created during my journey learning full-stack
 
 I've built a modern web interface to browse all documentation:
 
-**🔗 [Live Documentation Viewer](https://yourusername.github.io/learning/)** *(Replace with your actual GitHub Pages URL)*
+**🔗 [Live Documentation Viewer](https://kazmiali.github.io/learning/)** *(Replace with your actual GitHub Pages URL)*
 
 ### Features
 - 📱 **Responsive Design**: Works on all devices
@@ -68,14 +68,14 @@ learning/
 ## 🚀 Quick Start
 
 ### View Documentation Online
-Visit the [live documentation viewer](https://yourusername.github.io/learning/) to browse all content.
+Visit the [live documentation viewer](https://kazmiali.github.io/learning/) to browse all content.
 
 ### Local Development
 If you want to run the documentation viewer locally:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/learning.git
+git clone https://github.com/kazmiali/learning.git
 cd learning
 
 # Navigate to the website
@@ -159,7 +159,7 @@ This is a personal learning repository, but feel free to:
 
 ## 📞 Connect
 
-- **GitHub**: [yourusername](https://github.com/yourusername)
+- **GitHub**: [kazmiali](https://github.com/kazmiali)
 - **Portfolio**: [your-portfolio-site](https://your-portfolio.com)
 - **LinkedIn**: [your-linkedin](https://linkedin.com/in/yourprofile)
 
