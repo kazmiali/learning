@@ -17,6 +17,50 @@
 </template>
 
 <script setup lang="ts">
+import { watch, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+
+const defaultTitle = 'Documentation';
+const defaultDescription = 'Documentation website with comprehensive guides and resources';
+
+function updatePageMeta(title: string, description?: string) {
+  document.title = title ? `${title} | Documentation` : defaultTitle;
+  
+  const metaDescription = document.querySelector('meta[name="description"]');
+  if (metaDescription) {
+    metaDescription.setAttribute('content', description || defaultDescription);
+  }
+  
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) {
+    ogTitle.setAttribute('content', title || defaultTitle);
+  }
+  
+  const ogDescription = document.querySelector('meta[property="og:description"]');
+  if (ogDescription) {
+    ogDescription.setAttribute('content', description || defaultDescription);
+  }
+  
+  const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+  if (twitterTitle) {
+    twitterTitle.setAttribute('content', title || defaultTitle);
+  }
+  
+  const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+  if (twitterDescription) {
+    twitterDescription.setAttribute('content', description || defaultDescription);
+  }
+}
+
+onMounted(() => {
+  updatePageMeta(route.meta.title as string, route.meta.description as string);
+});
+
+watch(() => route.meta, (newMeta) => {
+  updatePageMeta(newMeta.title as string, newMeta.description as string);
+}, { deep: true });
 </script>
 
 <style>

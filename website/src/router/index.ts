@@ -7,11 +7,19 @@ const routes = [
     path: '/',
     name: 'Home',
     component: HomeView,
+    meta: {
+      title: 'Home',
+      description: 'Explore our comprehensive documentation library'
+    }
   },
   {
     path: '/:path(.*)*',
     name: 'Doc',
     component: DocView,
+    meta: {
+      title: 'Documentation',
+      description: 'View documentation content'
+    }
   },
 ];
 
