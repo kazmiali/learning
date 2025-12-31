@@ -1,38 +1,35 @@
 <template>
-  <div>
-    <!-- Breadcrumbs -->
+  <div class="doc-view">
     <nav class="breadcrumbs" v-if="breadcrumbs.length > 0">
       <router-link to="/">Home</router-link>
-      <span v-for="(crumb, index) in breadcrumbs" :key="crumb.path">
+      <template v-for="(crumb, index) in breadcrumbs" :key="crumb.path">
         <span class="separator">/</span>
         <router-link v-if="index < breadcrumbs.length - 1" :to="crumb.path">{{ crumb.name }}</router-link>
         <span v-else class="current">{{ crumb.name }}</span>
-      </span>
+      </template>
     </nav>
 
-    <!-- Content -->
-    <div v-if="item">
-      <div v-if="item.type === 'directory'" class="directory-view">
-        <h1>{{ item.name }}</h1>
+    <div v-if="item" class="content-wrapper">
+      <div v-if="item.type === 'directory'" class="directory-view card">
+        <h1 class="directory-title">{{ item.name }}</h1>
         <div class="file-list">
-          <div v-for="child in sortedChildren" :key="child.name" class="file-item">
-            <router-link :to="`${$route.path}/${child.name}`" class="file-link">
-              <span class="file-icon">{{ child.type === 'directory' ? '📁' : '📄' }}</span>
-              <span class="file-name">{{ child.name }}</span>
-            </router-link>
-          </div>
+          <router-link v-for="child in sortedChildren" :key="child.name" :to="`${$route.path}/${child.name}`" class="file-item">
+            <span class="file-icon">{{ child.type === 'directory' ? '📁' : '📄' }}</span>
+            <span class="file-name">{{ child.name }}</span>
+            <span class="file-arrow">→</span>
+          </router-link>
         </div>
       </div>
       
-      <div v-else-if="item.type === 'file'" class="file-view">
+      <div v-else-if="item.type === 'file'" class="file-view card">
         <div class="markdown-content" v-html="markdownContent"></div>
       </div>
     </div>
     
-    <div v-else class="not-found">
-      <h1>Not Found</h1>
-      <p>The requested file or directory could not be found.</p>
-      <router-link to="/" class="back-home">← Back to Home</router-link>
+    <div v-else class="not-found card">
+      <h1>Page Not Found</h1>
+      <p>The page you're looking for doesn't exist or has been moved.</p>
+      <router-link to="/" class="back-home-link">← Back to Home</router-link>
     </div>
   </div>
 </template>
@@ -117,290 +114,183 @@ watch(() => route.params.path, updateContent, { immediate: true });
 </script>
 
 <style scoped>
+.card {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-xl);
+}
+
 .breadcrumbs {
-  margin-bottom: 2rem;
-  padding: 1rem 1.5rem;
-  background-color: var(--neomorph-bg);
-  box-shadow: inset 4px 4px 8px var(--neomorph-shadow-dark),
-              inset -4px -4px 8px var(--neomorph-shadow-light);
-  border-radius: 16px;
-  font-size: 0.95rem;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+  font-size: 0.95rem;
 }
 
 .breadcrumbs a {
-  color: var(--neomorph-accent);
-  text-decoration: none;
-  padding: 0.4rem 0.8rem;
-  border-radius: 8px;
-  transition: all 0.2s ease;
-  background-color: var(--neomorph-bg);
-  box-shadow: 3px 3px 6px var(--neomorph-shadow-dark),
-              -3px -3px 6px var(--neomorph-shadow-light);
+  color: var(--color-text-muted);
 }
 
 .breadcrumbs a:hover {
-  box-shadow: inset 2px 2px 4px var(--neomorph-shadow-dark),
-              inset -2px -2px 4px var(--neomorph-shadow-light);
+  color: var(--color-primary);
+  text-decoration: none;
 }
 
 .separator {
-  color: var(--neomorph-text-muted);
-  font-weight: 600;
+  color: var(--color-text-muted);
 }
 
 .current {
-  color: var(--neomorph-text);
-  font-weight: 600;
-  padding: 0.4rem 0.8rem;
+  color: var(--color-text-heading);
+  font-weight: 500;
 }
 
-.directory-view {
-  background-color: var(--neomorph-bg);
-  border-radius: 20px;
-  padding: 2rem;
-  box-shadow: 8px 8px 16px var(--neomorph-shadow-dark),
-              -8px -8px 16px var(--neomorph-shadow-light);
+.content-wrapper {
+  margin: 0 auto;
+}
+
+/* Directory View */
+.directory-title {
+  margin-bottom: var(--spacing-lg);
+  font-size: 2rem;
 }
 
 .file-list {
   display: grid;
-  gap: 1rem;
+  gap: var(--spacing-sm);
 }
 
 .file-item {
-  border-radius: 16px;
-  overflow: hidden;
-}
-
-.file-link {
   display: flex;
   align-items: center;
-  padding: 1.25rem 1.5rem;
+  padding: var(--spacing-md);
+  gap: var(--spacing-md);
+  border-radius: var(--border-radius);
   text-decoration: none;
-  color: var(--neomorph-text);
-  transition: all 0.3s ease;
-  background-color: var(--neomorph-bg);
-  box-shadow: 6px 6px 12px var(--neomorph-shadow-dark),
-              -6px -6px 12px var(--neomorph-shadow-light);
-  gap: 1rem;
+  color: var(--color-text-body);
+  transition: background-color 0.2s ease;
 }
 
-.file-link:hover {
-  box-shadow: 3px 3px 6px var(--neomorph-shadow-dark),
-              -3px -3px 6px var(--neomorph-shadow-light);
-  transform: translateX(8px);
+.file-item:hover {
+  background-color: var(--color-background-mute);
+  text-decoration: none;
 }
 
 .file-icon {
-  font-size: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
-  background-color: var(--neomorph-bg);
-  box-shadow: inset 3px 3px 6px var(--neomorph-shadow-dark),
-              inset -3px -3px 6px var(--neomorph-shadow-light);
+  font-size: 1.5rem;
+  color: var(--color-text-muted);
 }
 
 .file-name {
-  font-weight: 600;
-  font-size: 1.1rem;
   flex: 1;
+  font-weight: 500;
+  color: var(--color-text-heading);
 }
 
-.file-view {
-  background-color: var(--neomorph-bg);
-  border-radius: 20px;
-  padding: 2.5rem;
-  box-shadow: 8px 8px 16px var(--neomorph-shadow-dark),
-              -8px -8px 16px var(--neomorph-shadow-light);
+.file-arrow {
+  font-size: 1.25rem;
+  color: var(--color-text-muted);
+  transition: transform 0.2s ease;
 }
 
+.file-item:hover .file-arrow {
+  transform: translateX(4px);
+}
+
+/* File View (Markdown) */
 .markdown-content {
-  line-height: 1.8;
-  color: var(--neomorph-text);
+  line-height: 1.7;
+  font-size: 1.1rem;
 }
 
 .markdown-content :deep(h1),
 .markdown-content :deep(h2),
-.markdown-content :deep(h3),
-.markdown-content :deep(h4),
-.markdown-content :deep(h5),
-.markdown-content :deep(h6) {
-  color: var(--neomorph-text);
-  margin-top: 2.5rem;
-  margin-bottom: 1.25rem;
-  font-weight: 600;
-}
-
-.markdown-content :deep(h1) {
-  font-size: 2.2rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 3px solid var(--neomorph-accent);
-  background: linear-gradient(135deg, var(--neomorph-accent), #6ab0ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.markdown-content :deep(h2) {
-  font-size: 1.8rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--neomorph-accent-light);
-}
-
 .markdown-content :deep(h3) {
-  font-size: 1.5rem;
+  margin-top: 2em;
+  margin-bottom: 0.8em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .markdown-content :deep(p) {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.25em;
 }
 
 .markdown-content :deep(a) {
-  color: var(--neomorph-accent);
-  text-decoration: none;
-  padding: 0.2rem 0.4rem;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-}
-
-.markdown-content :deep(a:hover) {
-  background-color: var(--neomorph-accent-light);
-  box-shadow: inset 2px 2px 4px var(--neomorph-shadow-dark),
-              inset -2px -2px 4px var(--neomorph-shadow-light);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--color-primary-light);
 }
 
 .markdown-content :deep(code) {
-  background-color: var(--neomorph-bg);
-  padding: 0.3rem 0.6rem;
-  border-radius: 8px;
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  background-color: var(--color-primary-light);
+  color: var(--color-text-heading);
+  padding: 0.2em 0.4em;
+  border-radius: var(--spacing-xs);
   font-size: 0.9em;
-  color: var(--neomorph-accent);
-  box-shadow: inset 2px 2px 4px var(--neomorph-shadow-dark),
-              inset -2px -2px 4px var(--neomorph-shadow-light);
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 }
 
 .markdown-content :deep(pre) {
-  background-color: var(--neomorph-bg);
-  border-radius: 16px;
-  padding: 1.5rem;
+  background-color: var(--color-background-mute);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  margin: 1.5em 0;
   overflow-x: auto;
-  box-shadow: inset 4px 4px 8px var(--neomorph-shadow-dark),
-              inset -4px -4px 8px var(--neomorph-shadow-light);
-  margin: 1.5rem 0;
 }
 
 .markdown-content :deep(pre code) {
   background: none;
-  box-shadow: none;
   padding: 0;
+  border: none;
 }
 
 .markdown-content :deep(blockquote) {
-  border-left: 4px solid var(--neomorph-accent);
-  margin: 1.5rem 0;
-  padding: 1rem 1.5rem;
-  color: var(--neomorph-text-muted);
-  background-color: var(--neomorph-bg);
-  border-radius: 0 12px 12px 0;
-  box-shadow: inset 4px 4px 8px var(--neomorph-shadow-dark),
-              inset -4px -4px 8px var(--neomorph-shadow-light);
+  border-left: 4px solid var(--color-border);
+  margin: 1.5em 0;
+  padding: 1em 1.5em;
+  color: var(--color-text-muted);
+  background-color: var(--color-background-mute);
 }
 
 .markdown-content :deep(ul),
 .markdown-content :deep(ol) {
-  margin: 1rem 0;
-  padding-left: 2rem;
+  padding-left: 1.5em;
+  margin-bottom: 1.25em;
 }
 
-.markdown-content :deep(li) {
-  margin-bottom: 0.5rem;
-}
-
-.markdown-content :deep(table) {
-  border-collapse: separate;
-  border-spacing: 0;
-  width: 100%;
-  margin: 1.5rem 0;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 4px 4px 8px var(--neomorph-shadow-dark),
-              -4px -4px 8px var(--neomorph-shadow-light);
-}
-
-.markdown-content :deep(th),
-.markdown-content :deep(td) {
-  padding: 1rem 1.25rem;
-  text-align: left;
-  border-bottom: 1px solid var(--neomorph-shadow-dark);
-}
-
-.markdown-content :deep(th) {
-  background: linear-gradient(135deg, var(--neomorph-accent), #6ab0ff);
-  color: white;
-  font-weight: 600;
-}
-
-.markdown-content :deep(tr:last-child td) {
-  border-bottom: none;
-}
-
-.markdown-content :deep(img) {
-  max-width: 100%;
-  border-radius: 12px;
-  box-shadow: 6px 6px 12px var(--neomorph-shadow-dark),
-              -6px -6px 12px var(--neomorph-shadow-light);
-  margin: 1.5rem 0;
-}
-
+/* Not Found View */
 .not-found {
   text-align: center;
-  padding: 4rem 2rem;
-  background-color: var(--neomorph-bg);
-  border-radius: 20px;
-  box-shadow: 8px 8px 16px var(--neomorph-shadow-dark),
-              -8px -8px 16px var(--neomorph-shadow-light);
+  padding: var(--spacing-xxl);
 }
 
 .not-found h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  background: linear-gradient(135deg, var(--neomorph-accent), #6ab0ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-size: 2rem;
 }
 
 .not-found p {
-  color: var(--neomorph-text-muted);
-  margin-bottom: 2rem;
-  font-size: 1.2rem;
+  color: var(--color-text-muted);
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
 }
 
-.back-home {
-  display: inline-block;
-  padding: 1rem 2rem;
-  color: var(--neomorph-accent);
+.back-home-link {
+  font-weight: 500;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius);
+  background-color: var(--color-primary);
+  color: var(--color-background);
   text-decoration: none;
-  font-weight: 600;
-  background-color: var(--neomorph-bg);
-  box-shadow: 6px 6px 12px var(--neomorph-shadow-dark),
-              -6px -6px 12px var(--neomorph-shadow-light);
-  border-radius: 12px;
-  transition: all 0.3s ease;
+  transition: background-color 0.2s ease;
 }
 
-.back-home:hover {
-  box-shadow: 3px 3px 6px var(--neomorph-shadow-dark),
-              -3px -3px 6px var(--neomorph-shadow-light);
-  transform: translateY(-2px);
+.back-home-link:hover {
+  background-color: var(--color-primary-hover);
+  text-decoration: none;
 }
 </style>
