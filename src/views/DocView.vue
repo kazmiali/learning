@@ -98,7 +98,7 @@ async function updateContent() {
 
   if (item.value && item.value.type === 'file') {
     try {
-      const response = await fetch(`/docs/${pathSegments.join('/')}`);
+      const response = await fetch(`${import.meta.env.BASE_URL}docs/${pathSegments.join('/')}`);
       if (!response.ok) {
         throw new Error('File not found');
       }
