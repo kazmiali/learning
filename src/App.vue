@@ -81,16 +81,10 @@ watch(() => route.meta, (newMeta) => {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: var(--backdrop-light);
-  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-background);
+  box-shadow: var(--shadow-sm);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-}
-
-@media (prefers-color-scheme: dark) {
-  .app-header {
-    background-color: var(--backdrop-dark);
-  }
 }
 
 .main-nav {
@@ -146,19 +140,20 @@ watch(() => route.meta, (newMeta) => {
   text-decoration: none;
   padding: var(--spacing-sm) var(--spacing-md);
   border-radius: var(--radius-md);
-  transition: all 0.15s ease;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
 }
 
 .nav-link:hover {
-  background-color: var(--color-accent-light);
   color: var(--color-accent);
   text-decoration: none;
+  box-shadow: var(--shadow-inset);
 }
 
 .nav-link.router-link-exact-active {
-  background-color: var(--color-accent-subtle);
   color: var(--color-accent);
   font-weight: 600;
+  box-shadow: var(--shadow-inset);
 }
 
 .nav-link svg {

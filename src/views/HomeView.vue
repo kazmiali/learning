@@ -163,12 +163,13 @@ onMounted(() => {
   align-items: center;
   gap: var(--spacing-sm);
   padding: var(--spacing-sm) var(--spacing-md);
-  background-color: var(--color-accent-light);
+  background-color: var(--color-surface);
   color: var(--color-accent);
   border-radius: 100px;
   font-size: 0.875rem;
   font-weight: 600;
   margin-bottom: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 .hero-title {
@@ -196,16 +197,20 @@ onMounted(() => {
   gap: var(--spacing-xl);
   margin-top: var(--spacing-2xl);
   padding-top: var(--spacing-xl);
-  border-top: 1px solid var(--color-border);
 }
 
 .stat-item {
   text-align: center;
-  transition: transform 0.2s ease;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
 }
 
 .stat-item:hover {
   transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .stat-number {
@@ -234,7 +239,6 @@ onMounted(() => {
   justify-content: space-between;
   margin-bottom: var(--spacing-xl);
   padding-bottom: var(--spacing-md);
-  border-bottom: 2px solid var(--color-border);
 }
 
 .section-title {
@@ -255,15 +259,14 @@ onMounted(() => {
   gap: var(--spacing-sm);
   padding: var(--spacing-sm) var(--spacing-md);
   background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   min-width: 240px;
-  transition: all 0.15s ease;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
 }
 
 .search-box:focus-within {
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px var(--color-accent-light);
+  box-shadow: var(--shadow-inset);
 }
 
 .search-box svg {
@@ -290,11 +293,11 @@ onMounted(() => {
   align-items: center;
   padding: var(--spacing-xs) var(--spacing-md);
   background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
   border-radius: 100px;
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--color-text-tertiary);
+  box-shadow: var(--shadow-sm);
 }
 
 .docs-grid {
@@ -308,12 +311,12 @@ onMounted(() => {
   flex-direction: column;
   padding: var(--spacing-xl);
   background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   text-decoration: none;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  box-shadow: var(--shadow-sm);
 }
 
 .doc-card::before {
@@ -332,7 +335,6 @@ onMounted(() => {
 .doc-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
-  border-color: var(--color-accent);
   text-decoration: none;
 }
 
@@ -353,15 +355,17 @@ onMounted(() => {
   justify-content: center;
   width: 48px;
   height: 48px;
-  background-color: var(--color-accent-light);
+  background-color: var(--color-surface);
   color: var(--color-accent);
   border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
   transition: all 0.2s ease;
 }
 
 .doc-icon.is-directory {
   background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
   color: white;
+  box-shadow: var(--shadow-sm);
 }
 
 .doc-card:hover .doc-icon {
@@ -369,8 +373,7 @@ onMounted(() => {
 }
 
 .doc-card:hover .doc-icon:not(.is-directory) {
-  background-color: var(--color-accent);
-  color: white;
+  box-shadow: var(--shadow-inset);
 }
 
 .card-arrow {
@@ -426,19 +429,19 @@ onMounted(() => {
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--color-text-tertiary);
-  background-color: var(--color-background);
+  background-color: var(--color-surface);
   padding: var(--spacing-xs) var(--spacing-sm);
   border-radius: var(--radius-sm);
-  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-sm);
 }
 
 .empty-state {
   text-align: center;
   padding: var(--spacing-3xl);
   background-color: var(--color-surface);
-  border: 2px dashed var(--color-border);
   border-radius: var(--radius-lg);
   margin-top: var(--spacing-2xl);
+  box-shadow: var(--shadow-sm);
 }
 
 .empty-icon {

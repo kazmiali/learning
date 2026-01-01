@@ -8,43 +8,42 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* Light Mode Colors */
-  --color-background: #FAFAFA;
-  --color-surface: #FFFFFF;
-  --color-surface-elevated: #FFFFFF;
-  --color-border: #E5E7EB;
-  --color-border-light: #F3F4F6;
-  --color-text-primary: #111827;
-  --color-text-secondary: #4B5563;
-  --color-text-tertiary: #9CA3AF;
+  /* Light Mode Neomorphism Colors */
+  --color-background: #E0E5EC;
+  --color-surface: #E0E5EC;
+  --color-surface-elevated: #E0E5EC;
+  --color-border: #E0E5EC;
+  --color-border-light: #E0E5EC;
+  --color-text-primary: #2D3748;
+  --color-text-secondary: #4A5568;
+  --color-text-tertiary: #718096;
   --color-accent: #8B5CF6;
   --color-accent-hover: #7C3AED;
-  --color-accent-light: #F5F3FF;
-  --color-accent-subtle: #EDE9FE;
+  --color-accent-light: #EDE9FE;
+  --color-accent-subtle: #F5F3FF;
   --color-success: #10B981;
   --color-warning: #F59E0B;
   --color-danger: #EF4444;
-  --shadow-color-light: rgba(0, 0, 0, 0.05);
-  --shadow-color-medium: rgba(0, 0, 0, 0.1);
-  --shadow-color-heavy: rgba(0, 0, 0, 0.5);
-  --shadow-sm: 0 1px 2px 0 var(--shadow-color-light);
-  --shadow-color-extra-light: rgba(0, 0, 0, 0.06);
-  --shadow-color-extra-medium: rgba(0, 0, 0, 0.05);
-  --shadow-color-extra-heavy: rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 6px -1px var(--shadow-color-medium), 0 2px 4px -1px var(--shadow-color-extra-light);
-  --shadow-lg: 0 10px 15px -3px var(--shadow-color-medium), 0 4px 6px -2px var(--shadow-color-extra-medium);
-  --shadow-xl: 0 20px 25px -5px var(--shadow-color-medium), 0 10px 10px -5px var(--shadow-color-extra-heavy);
+  
+  /* Neomorphism Shadows - Light Mode */
+  --neomorph-light: #FFFFFF;
+  --neomorph-dark: #A3B1C6;
+  --shadow-sm: 3px 3px 6px var(--neomorph-dark), -3px -3px 6px var(--neomorph-light);
+  --shadow-inset: inset 3px 3px 6px var(--neomorph-dark), inset -3px -3px 6px var(--neomorph-light);
+  --shadow-md: 5px 5px 10px var(--neomorph-dark), -5px -5px 10px var(--neomorph-light);
+  --shadow-lg: 8px 8px 16px var(--neomorph-dark), -8px -8px 16px var(--neomorph-light);
+  --shadow-xl: 12px 12px 24px var(--neomorph-dark), -12px -12px 24px var(--neomorph-light);
 
-  /* Dark Mode Colors (prefers-color-scheme) */
+  /* Dark Mode Neomorphism Colors (prefers-color-scheme) */
   @media (prefers-color-scheme: dark) {
-    --color-background: #0F172A;
-    --color-surface: #1E293B;
-    --color-surface-elevated: #334155;
-    --color-border: #334155;
-    --color-border-light: #475569;
-    --color-text-primary: #F1F5F9;
+    --color-background: #1E1E1E;
+    --color-surface: #1E1E1E;
+    --color-surface-elevated: #1E1E1E;
+    --color-border: #1E1E1E;
+    --color-border-light: #1E1E1E;
+    --color-text-primary: #E2E8F0;
     --color-text-secondary: #CBD5E1;
-    --color-text-tertiary: #64748B;
+    --color-text-tertiary: #94A3B8;
     --color-accent: #A78BFA;
     --color-accent-hover: #C4B5FD;
     --color-accent-light: #2E1065;
@@ -52,16 +51,15 @@
     --color-success: #34D399;
     --color-warning: #FBBF24;
     --color-danger: #F87171;
-    --shadow-color-light: rgba(0, 0, 0, 0.3);
-    --shadow-color-medium: rgba(0, 0, 0, 0.4);
-    --shadow-color-heavy: rgba(0, 0, 0, 0.6);
-    --shadow-sm: 0 1px 2px 0 var(--shadow-color-light);
-    --shadow-color-extra-light: rgba(0, 0, 0, 0.3);
-    --shadow-color-extra-medium: rgba(0, 0, 0, 0.4);
-    --shadow-color-extra-heavy: rgba(0, 0, 0, 0.6);
-    --shadow-md: 0 4px 6px -1px var(--shadow-color-medium), 0 2px 4px -1px var(--shadow-color-extra-light);
-    --shadow-lg: 0 10px 15px -3px var(--shadow-color-heavy), 0 4px 6px -2px var(--shadow-color-extra-medium);
-    --shadow-xl: 0 20px 25px -5px var(--shadow-color-extra-heavy), 0 10px 10px -5px var(--shadow-color-heavy);
+    
+    /* Neomorphism Shadows - Dark Mode */
+    --neomorph-light: #2D2D2D;
+    --neomorph-dark: #0F0F0F;
+    --shadow-sm: 3px 3px 6px var(--neomorph-dark), -3px -3px 6px var(--neomorph-light);
+    --shadow-inset: inset 3px 3px 6px var(--neomorph-dark), inset -3px -3px 6px var(--neomorph-light);
+    --shadow-md: 5px 5px 10px var(--neomorph-dark), -5px -5px 10px var(--neomorph-light);
+    --shadow-lg: 8px 8px 16px var(--neomorph-dark), -8px -8px 16px var(--neomorph-light);
+    --shadow-xl: 12px 12px 24px var(--neomorph-dark), -12px -12px 24px var(--neomorph-light);
   }
 
   /* Sizing & Spacing */
