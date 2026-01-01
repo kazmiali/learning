@@ -24,10 +24,16 @@
   --color-success: #10B981;
   --color-warning: #F59E0B;
   --color-danger: #EF4444;
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-color-light: rgba(0, 0, 0, 0.05);
+  --shadow-color-medium: rgba(0, 0, 0, 0.1);
+  --shadow-color-heavy: rgba(0, 0, 0, 0.5);
+  --shadow-sm: 0 1px 2px 0 var(--shadow-color-light);
+  --shadow-color-extra-light: rgba(0, 0, 0, 0.06);
+  --shadow-color-extra-medium: rgba(0, 0, 0, 0.05);
+  --shadow-color-extra-heavy: rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 6px -1px var(--shadow-color-medium), 0 2px 4px -1px var(--shadow-color-extra-light);
+  --shadow-lg: 0 10px 15px -3px var(--shadow-color-medium), 0 4px 6px -2px var(--shadow-color-extra-medium);
+  --shadow-xl: 0 20px 25px -5px var(--shadow-color-medium), 0 10px 10px -5px var(--shadow-color-extra-heavy);
 
   /* Dark Mode Colors (prefers-color-scheme) */
   @media (prefers-color-scheme: dark) {
@@ -46,10 +52,16 @@
     --color-success: #34D399;
     --color-warning: #FBBF24;
     --color-danger: #F87171;
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+    --shadow-color-light: rgba(0, 0, 0, 0.3);
+    --shadow-color-medium: rgba(0, 0, 0, 0.4);
+    --shadow-color-heavy: rgba(0, 0, 0, 0.6);
+    --shadow-sm: 0 1px 2px 0 var(--shadow-color-light);
+    --shadow-color-extra-light: rgba(0, 0, 0, 0.3);
+    --shadow-color-extra-medium: rgba(0, 0, 0, 0.4);
+    --shadow-color-extra-heavy: rgba(0, 0, 0, 0.6);
+    --shadow-md: 0 4px 6px -1px var(--shadow-color-medium), 0 2px 4px -1px var(--shadow-color-extra-light);
+    --shadow-lg: 0 10px 15px -3px var(--shadow-color-heavy), 0 4px 6px -2px var(--shadow-color-extra-medium);
+    --shadow-xl: 0 20px 25px -5px var(--shadow-color-extra-heavy), 0 10px 10px -5px var(--shadow-color-heavy);
   }
 
   /* Sizing & Spacing */
@@ -66,6 +78,8 @@
   --radius-xl: 20px;
   --content-width: 1200px;
   --sidebar-width: 280px;
+  --backdrop-light: rgba(255, 255, 255, 0.8);
+  --backdrop-dark: rgba(15, 23, 42, 0.8);
 }
 
 *,

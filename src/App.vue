@@ -81,7 +81,7 @@ watch(() => route.meta, (newMeta) => {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: var(--backdrop-light);
   border-bottom: 1px solid var(--color-border);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -89,7 +89,7 @@ watch(() => route.meta, (newMeta) => {
 
 @media (prefers-color-scheme: dark) {
   .app-header {
-    background-color: rgba(15, 23, 42, 0.8);
+    background-color: var(--backdrop-dark);
   }
 }
 
