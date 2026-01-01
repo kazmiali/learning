@@ -4,11 +4,22 @@
       <div class="container">
         <nav class="main-nav">
           <router-link to="/" class="nav-brand">
-            <span class="brand-icon">📚</span>
-            <span class="brand-name">Documentation</span>
+            <div class="brand-logo">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span class="brand-name">Learning Notes</span>
           </router-link>
           <div class="nav-spacer"></div>
-          <router-link to="/" class="nav-link">Home</router-link>
+          <router-link to="/" class="nav-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <polyline points="9 22 9 12 15 12 15 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Home</span>
+          </router-link>
         </nav>
       </div>
     </header>
@@ -70,34 +81,55 @@ watch(() => route.meta, (newMeta) => {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: var(--color-background);
+  background-color: rgba(255, 255, 255, 0.8);
   border-bottom: 1px solid var(--color-border);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+@media (prefers-color-scheme: dark) {
+  .app-header {
+    background-color: rgba(15, 23, 42, 0.8);
+  }
 }
 
 .main-nav {
   display: flex;
   align-items: center;
-  height: 64px;
+  height: 72px;
+  gap: var(--spacing-lg);
 }
 
 .nav-brand {
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
-  font-weight: 600;
-  font-size: 1.1rem;
-  color: var(--color-text-heading);
+  gap: var(--spacing-md);
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--color-text-primary);
   text-decoration: none;
+  transition: opacity 0.15s ease;
 }
 
 .nav-brand:hover {
   text-decoration: none;
-  color: var(--color-primary);
+  opacity: 0.8;
 }
 
-.brand-icon {
-  font-size: 1.5rem;
+.brand-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
+  border-radius: var(--radius-md);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.brand-name {
+  letter-spacing: -0.02em;
 }
 
 .nav-spacer {
@@ -105,23 +137,49 @@ watch(() => route.meta, (newMeta) => {
 }
 
 .nav-link {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
   font-weight: 500;
-  color: var(--color-text-body);
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
   text-decoration: none;
   padding: var(--spacing-sm) var(--spacing-md);
-  border-radius: var(--border-radius);
-  transition: background-color 0.2s ease, color 0.2s ease;
+  border-radius: var(--radius-md);
+  transition: all 0.15s ease;
 }
 
 .nav-link:hover {
-  background-color: var(--color-background-mute);
-  color: var(--color-text-heading);
+  background-color: var(--color-accent-light);
+  color: var(--color-accent);
   text-decoration: none;
 }
 
 .nav-link.router-link-exact-active {
-  background-color: var(--color-primary-light);
-  color: var(--color-primary);
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent);
   font-weight: 600;
+}
+
+.nav-link svg {
+  transition: transform 0.15s ease;
+}
+
+.nav-link:hover svg {
+  transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+  .main-nav {
+    height: 64px;
+  }
+  
+  .brand-name {
+    display: none;
+  }
+  
+  .nav-link span {
+    display: none;
+  }
 }
 </style>
