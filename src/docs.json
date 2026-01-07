@@ -205,31 +205,51 @@
       "type": "directory",
       "children": [
         {
-          "name": "01-getting-started.md",
+          "name": "01-nextjs-foundations.md",
           "type": "file"
         },
         {
-          "name": "02-pages-routing.md",
+          "name": "02-server-client-components.md",
           "type": "file"
         },
         {
-          "name": "03-api-routes.md",
+          "name": "03-data-fetching-caching.md",
           "type": "file"
         },
         {
-          "name": "04-data-fetching.md",
+          "name": "04-rendering-strategies.md",
           "type": "file"
         },
         {
-          "name": "05-styling.md",
+          "name": "05-route-handlers-api.md",
           "type": "file"
         },
         {
-          "name": "06-deployment.md",
+          "name": "06-middleware-edge.md",
           "type": "file"
         },
         {
-          "name": "07-advanced-features.md",
+          "name": "07-authentication-authorization.md",
+          "type": "file"
+        },
+        {
+          "name": "08-database-integration.md",
+          "type": "file"
+        },
+        {
+          "name": "09-performance-optimization.md",
+          "type": "file"
+        },
+        {
+          "name": "10-testing.md",
+          "type": "file"
+        },
+        {
+          "name": "11-deployment-production.md",
+          "type": "file"
+        },
+        {
+          "name": "12-nextjs-16-features.md",
           "type": "file"
         },
         {
@@ -443,31 +463,47 @@
       "type": "directory",
       "children": [
         {
-          "name": "01-components-props.md",
+          "name": "01-react-foundations.md",
           "type": "file"
         },
         {
-          "name": "02-state-lifecycle.md",
+          "name": "02-component-lifecycle.md",
           "type": "file"
         },
         {
-          "name": "03-hooks.md",
+          "name": "03-modern-hooks-mental-models.md",
           "type": "file"
         },
         {
-          "name": "04-routing.md",
+          "name": "04-state-architecture.md",
           "type": "file"
         },
         {
-          "name": "05-state-management.md",
+          "name": "05-concurrent-react-and-transitions.md",
           "type": "file"
         },
         {
-          "name": "06-performance.md",
+          "name": "06-performance-and-testing.md",
           "type": "file"
         },
         {
-          "name": "07-testing.md",
+          "name": "07-react-in-production.md",
+          "type": "file"
+        },
+        {
+          "name": "08-senior-react-interview-topics.md",
+          "type": "file"
+        },
+        {
+          "name": "09-routing-navigation.md",
+          "type": "file"
+        },
+        {
+          "name": "10-forms-validation.md",
+          "type": "file"
+        },
+        {
+          "name": "11-custom-hooks-patterns.md",
           "type": "file"
         },
         {
