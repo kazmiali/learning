@@ -25,16 +25,6 @@
             {
               "name": "04-indexing.md",
               "type": "file"
-            },
-            {
-              "name": "code-examples",
-              "type": "directory",
-              "children": []
-            },
-            {
-              "name": "exercises",
-              "type": "directory",
-              "children": []
             }
           ]
         },
@@ -49,16 +39,6 @@
             {
               "name": "02-relationships.md",
               "type": "file"
-            },
-            {
-              "name": "code-examples",
-              "type": "directory",
-              "children": []
-            },
-            {
-              "name": "exercises",
-              "type": "directory",
-              "children": []
             }
           ]
         },
@@ -77,16 +57,6 @@
             {
               "name": "03-optimization.md",
               "type": "file"
-            },
-            {
-              "name": "code-examples",
-              "type": "directory",
-              "children": []
-            },
-            {
-              "name": "exercises",
-              "type": "directory",
-              "children": []
             }
           ]
         }
@@ -147,16 +117,6 @@
         {
           "name": "13-advanced-methods.md",
           "type": "file"
-        },
-        {
-          "name": "code-examples",
-          "type": "directory",
-          "children": []
-        },
-        {
-          "name": "exercises",
-          "type": "directory",
-          "children": []
         }
       ]
     },
@@ -187,16 +147,6 @@
         {
           "name": "06-testing.md",
           "type": "file"
-        },
-        {
-          "name": "code-examples",
-          "type": "directory",
-          "children": []
-        },
-        {
-          "name": "exercises",
-          "type": "directory",
-          "children": []
         }
       ]
     },
@@ -251,16 +201,6 @@
         {
           "name": "12-nextjs-16-features.md",
           "type": "file"
-        },
-        {
-          "name": "code-examples",
-          "type": "directory",
-          "children": []
-        },
-        {
-          "name": "projects",
-          "type": "directory",
-          "children": []
         }
       ]
     },
@@ -295,16 +235,6 @@
         {
           "name": "07-deployment.md",
           "type": "file"
-        },
-        {
-          "name": "code-examples",
-          "type": "directory",
-          "children": []
-        },
-        {
-          "name": "exercises",
-          "type": "directory",
-          "children": []
         }
       ]
     },
@@ -351,16 +281,6 @@
             {
               "name": "09-deployment.md",
               "type": "file"
-            },
-            {
-              "name": "code-examples",
-              "type": "directory",
-              "children": []
-            },
-            {
-              "name": "projects",
-              "type": "directory",
-              "children": []
             }
           ]
         },
@@ -395,16 +315,6 @@
             {
               "name": "07-deployment.md",
               "type": "file"
-            },
-            {
-              "name": "code-examples",
-              "type": "directory",
-              "children": []
-            },
-            {
-              "name": "projects",
-              "type": "directory",
-              "children": []
             }
           ]
         },
@@ -443,16 +353,6 @@
             {
               "name": "08-deployment.md",
               "type": "file"
-            },
-            {
-              "name": "code-examples",
-              "type": "directory",
-              "children": []
-            },
-            {
-              "name": "projects",
-              "type": "directory",
-              "children": []
             }
           ]
         }
@@ -505,16 +405,6 @@
         {
           "name": "11-custom-hooks-patterns.md",
           "type": "file"
-        },
-        {
-          "name": "code-examples",
-          "type": "directory",
-          "children": []
-        },
-        {
-          "name": "exercises",
-          "type": "directory",
-          "children": []
         }
       ]
     },
@@ -551,14 +441,24 @@
           "type": "file"
         },
         {
-          "name": "code-examples",
-          "type": "directory",
-          "children": []
+          "name": "08-authentication.md",
+          "type": "file"
         },
         {
-          "name": "projects",
-          "type": "directory",
-          "children": []
+          "name": "09-testing.md",
+          "type": "file"
+        },
+        {
+          "name": "10-performance.md",
+          "type": "file"
+        },
+        {
+          "name": "11-advanced-patterns.md",
+          "type": "file"
+        },
+        {
+          "name": "12-v2-features-migration.md",
+          "type": "file"
         }
       ]
     },
@@ -585,16 +485,6 @@
         {
           "name": "05-migration-js-to-ts.md",
           "type": "file"
-        },
-        {
-          "name": "code-examples",
-          "type": "directory",
-          "children": []
-        },
-        {
-          "name": "exercises",
-          "type": "directory",
-          "children": []
         }
       ]
     }
