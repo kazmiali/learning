@@ -234,3 +234,221 @@ h4 { font-size: 1.25rem; }
   background-color: var(--color-accent);
   color: #1a1a1a;
 }
+
+/* ============================================
+   SYNTAX HIGHLIGHTING - Neo Brutalism Theme
+   ============================================ */
+
+/* Light Mode Syntax Highlighting */
+:root {
+  --hljs-bg: #1a1a1a;
+  --hljs-fg: #f8f8f2;
+  --hljs-comment: #6a9955;
+  --hljs-keyword: #ff79c6;
+  --hljs-string: #a5d6ff;
+  --hljs-number: #79c0ff;
+  --hljs-function: #d2a8ff;
+  --hljs-variable: #ffa657;
+  --hljs-type: #7ee787;
+  --hljs-operator: #ff7b72;
+  --hljs-property: #79c0ff;
+  --hljs-punctuation: #8b949e;
+  --hljs-tag: #7ee787;
+  --hljs-attribute: #79c0ff;
+  --hljs-selector: #d2a8ff;
+  --hljs-regexp: #a5d6ff;
+  --hljs-symbol: #ffa657;
+}
+
+/* Dark Mode Syntax Highlighting */
+[data-theme="dark"] {
+  --hljs-bg: #0d1117;
+  --hljs-fg: #e6edf3;
+  --hljs-comment: #8b949e;
+  --hljs-keyword: #ff7b72;
+  --hljs-string: #a5d6ff;
+  --hljs-number: #79c0ff;
+  --hljs-function: #d2a8ff;
+  --hljs-variable: #ffa657;
+  --hljs-type: #7ee787;
+  --hljs-operator: #ff7b72;
+  --hljs-property: #79c0ff;
+  --hljs-punctuation: #8b949e;
+  --hljs-tag: #7ee787;
+  --hljs-attribute: #79c0ff;
+  --hljs-selector: #d2a8ff;
+  --hljs-regexp: #a5d6ff;
+  --hljs-symbol: #ffa657;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --hljs-bg: #0d1117;
+    --hljs-fg: #e6edf3;
+    --hljs-comment: #8b949e;
+    --hljs-keyword: #ff7b72;
+    --hljs-string: #a5d6ff;
+    --hljs-number: #79c0ff;
+    --hljs-function: #d2a8ff;
+    --hljs-variable: #ffa657;
+    --hljs-type: #7ee787;
+    --hljs-operator: #ff7b72;
+    --hljs-property: #79c0ff;
+    --hljs-punctuation: #8b949e;
+    --hljs-tag: #7ee787;
+    --hljs-attribute: #79c0ff;
+    --hljs-selector: #d2a8ff;
+    --hljs-regexp: #a5d6ff;
+    --hljs-symbol: #ffa657;
+  }
+}
+
+/* Highlight.js Base Styles */
+.hljs {
+  background: var(--hljs-bg) !important;
+  color: var(--hljs-fg);
+  padding: var(--spacing-lg);
+  overflow-x: auto;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Comments */
+.hljs-comment,
+.hljs-quote {
+  color: var(--hljs-comment);
+  font-style: italic;
+}
+
+/* Keywords */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-addition {
+  color: var(--hljs-keyword);
+  font-weight: 600;
+}
+
+/* Strings */
+.hljs-string,
+.hljs-doctag,
+.hljs-meta .hljs-string {
+  color: var(--hljs-string);
+}
+
+/* Numbers */
+.hljs-number,
+.hljs-literal {
+  color: var(--hljs-number);
+}
+
+/* Functions */
+.hljs-title,
+.hljs-title.function_,
+.hljs-title.class_,
+.hljs-section {
+  color: var(--hljs-function);
+  font-weight: 600;
+}
+
+/* Variables & Parameters */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-params {
+  color: var(--hljs-variable);
+}
+
+/* Types */
+.hljs-type,
+.hljs-built_in,
+.hljs-class {
+  color: var(--hljs-type);
+}
+
+/* Operators */
+.hljs-operator,
+.hljs-deletion {
+  color: var(--hljs-operator);
+}
+
+/* Properties */
+.hljs-property,
+.hljs-attr {
+  color: var(--hljs-property);
+}
+
+/* Punctuation */
+.hljs-punctuation {
+  color: var(--hljs-punctuation);
+}
+
+/* HTML/XML Tags */
+.hljs-tag {
+  color: var(--hljs-tag);
+}
+
+.hljs-name {
+  color: var(--hljs-tag);
+  font-weight: 600;
+}
+
+/* Attributes */
+.hljs-attribute {
+  color: var(--hljs-attribute);
+}
+
+/* Selectors (CSS) */
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-selector-pseudo {
+  color: var(--hljs-selector);
+}
+
+/* Regex */
+.hljs-regexp {
+  color: var(--hljs-regexp);
+}
+
+/* Symbols */
+.hljs-symbol,
+.hljs-bullet {
+  color: var(--hljs-symbol);
+}
+
+/* Meta */
+.hljs-meta,
+.hljs-meta .hljs-keyword {
+  color: var(--hljs-keyword);
+}
+
+/* Links */
+.hljs-link {
+  color: var(--hljs-string);
+  text-decoration: underline;
+}
+
+/* Strong/Emphasis */
+.hljs-strong {
+  font-weight: 700;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+/* Code block container styling */
+pre code.hljs {
+  display: block;
+  padding: var(--spacing-lg);
+  border: none;
+  background: var(--hljs-bg) !important;
+}
+
+/* Line numbers styling (optional future enhancement) */
+.hljs-ln-numbers {
+  color: var(--hljs-punctuation);
+  padding-right: var(--spacing-md);
+  border-right: 2px solid var(--hljs-punctuation);
+  margin-right: var(--spacing-md);
+  user-select: none;
+}

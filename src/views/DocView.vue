@@ -91,7 +91,30 @@
 import { ref, watch, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { marked } from 'marked';
+import { markedHighlight } from 'marked-highlight';
+import hljs from 'highlight.js';
 import docs from '../docs.json';
+
+// Configure marked to use highlight.js via marked-highlight
+marked.use(markedHighlight({
+  langPrefix: 'hljs language-',
+  highlight(code: string, lang: string) {
+    if (lang && hljs.getLanguage(lang)) {
+      try {
+        return hljs.highlight(code, { language: lang }).value;
+      } catch (err) {
+        console.error('Highlight error:', err);
+      }
+    }
+    // Auto-detect language if not specified
+    try {
+      return hljs.highlightAuto(code).value;
+    } catch (err) {
+      console.error('Highlight auto error:', err);
+    }
+    return code;
+  }
+}));
 
 const route = useRoute();
 const item = ref<any>(null);
@@ -453,30 +476,47 @@ watch(() => route.params.path, updateContent, { immediate: true });
 }
 
 .markdown-content :deep(code) {
-  background-color: var(--color-background);
-  color: var(--color-accent);
+  background-color: var(--hljs-bg, #1a1a1a);
+  color: var(--hljs-keyword, #ff79c6);
   padding: 0.2em 0.5em;
-  font-size: 0.9em;
-  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
-  font-weight: 600;
+  font-size: 0.875em;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'JetBrains Mono', monospace;
+  font-weight: 500;
   border: 2px solid var(--color-border);
+  border-radius: 0;
 }
 
 .markdown-content :deep(pre) {
-  background-color: var(--color-background);
+  background-color: var(--hljs-bg, #1a1a1a);
   border: var(--border-brutal);
   box-shadow: var(--shadow-brutal-sm);
-  padding: var(--spacing-lg);
+  padding: 0;
   margin: 1.5em 0;
   overflow-x: auto;
+  position: relative;
+}
+
+/* Language label for code blocks */
+.markdown-content :deep(pre)::before {
+  content: '';
+  display: block;
+  height: 6px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-purple), var(--color-cyan));
 }
 
 .markdown-content :deep(pre code) {
-  background: none;
-  padding: 0;
+  display: block;
+  background: var(--hljs-bg, #1a1a1a) !important;
+  color: var(--hljs-fg, #f8f8f2);
+  padding: var(--spacing-lg);
   border: none;
-  color: var(--color-text-primary);
-  font-weight: 500;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.markdown-content :deep(pre code.hljs) {
+  padding: var(--spacing-lg);
 }
 
 .markdown-content :deep(blockquote) {
