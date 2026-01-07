@@ -130,7 +130,7 @@ function formatName(name: string): string {
 
 function getFileColorClass(index: number): string {
   const colors = ['file-orange', 'file-purple', 'file-cyan', 'file-pink', 'file-lime', 'file-yellow'];
-  return colors[index % colors.length];
+  return colors[index % colors.length] as string;
 }
 
 // Compute breadcrumbs

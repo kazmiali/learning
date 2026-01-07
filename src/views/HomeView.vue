@@ -138,7 +138,7 @@ function countDepth(item: any, currentDepth: number = 0): number {
 
 function getCardColorClass(index: number): string {
   const colors = ['card-orange', 'card-purple', 'card-cyan', 'card-pink', 'card-lime', 'card-yellow'];
-  return colors[index % colors.length];
+  return colors[index % colors.length] as string;
 }
 
 const searchQuery = ref('');
