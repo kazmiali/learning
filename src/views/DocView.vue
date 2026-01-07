@@ -3,13 +3,13 @@
     <nav class="breadcrumbs" v-if="breadcrumbs.length > 0">
       <router-link to="/" class="breadcrumb-item">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <span>Home</span>
+        <span>HOME</span>
       </router-link>
       <template v-for="(crumb, index) in breadcrumbs" :key="crumb.path">
         <svg class="separator" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <polyline points="9 18 15 12 9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="9 18 15 12 9 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <router-link v-if="index < breadcrumbs.length - 1" :to="crumb.path" class="breadcrumb-item">
           {{ formatName(crumb.name) }}
@@ -23,30 +23,40 @@
         <div class="directory-header">
           <div class="directory-icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <div>
+          <div class="directory-info">
             <h1 class="directory-title">{{ formatName(item.name) }}</h1>
-            <p class="directory-subtitle">{{ sortedChildren.length }} {{ sortedChildren.length === 1 ? 'item' : 'items' }}</p>
+            <p class="directory-subtitle">{{ sortedChildren.length }} {{ sortedChildren.length === 1 ? 'ITEM' : 'ITEMS' }}</p>
           </div>
         </div>
         
         <div class="file-list">
-          <router-link v-for="child in sortedChildren" :key="child.name" :to="`${$route.path}/${child.name}`" class="file-item">
-            <div class="file-item-icon">
-              <svg v-if="child.type === 'directory'" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <svg v-else width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <router-link 
+            v-for="(child, index) in sortedChildren" 
+            :key="child.name" 
+            :to="`${$route.path}/${child.name}`" 
+            class="file-item"
+            :class="getFileColorClass(index)"
+          >
+            <div class="file-item-stripe"></div>
+            <div class="file-item-content">
+              <div class="file-item-icon">
+                <svg v-if="child.type === 'directory'" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <svg v-else width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <span class="file-name">{{ formatName(child.name) }}</span>
+              <span class="file-type">{{ child.type === 'directory' ? 'FOLDER' : 'DOC' }}</span>
+              <svg class="file-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="9 18 15 12 9 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-            <span class="file-name">{{ formatName(child.name) }}</span>
-            <svg class="file-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <polyline points="9 18 15 12 9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
           </router-link>
         </div>
       </div>
@@ -59,19 +69,19 @@
     <div v-else class="not-found">
       <div class="not-found-icon">
         <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <line x1="12" y1="8" x2="12" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <line x1="12" y1="16" x2="12.01" y2="16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="12" y1="8" x2="12" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="12" y1="16" x2="12.01" y2="16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
-      <h1>Page Not Found</h1>
+      <h1>PAGE NOT FOUND</h1>
       <p>The page you're looking for doesn't exist or has been moved.</p>
       <router-link to="/" class="back-home-btn">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <line x1="19" y1="12" x2="5" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <polyline points="12 19 5 12 12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="19" y1="12" x2="5" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="12 19 5 12 12 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <span>Back to Home</span>
+        <span>BACK TO HOME</span>
       </router-link>
     </div>
   </div>
@@ -93,6 +103,11 @@ function formatName(name: string): string {
     .split('-')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
+}
+
+function getFileColorClass(index: number): string {
+  const colors = ['file-orange', 'file-purple', 'file-cyan', 'file-pink', 'file-lime', 'file-yellow'];
+  return colors[index % colors.length];
 }
 
 // Compute breadcrumbs
@@ -175,10 +190,10 @@ watch(() => route.params.path, updateContent, { immediate: true });
   flex-wrap: wrap;
   gap: var(--spacing-sm);
   margin-bottom: var(--spacing-xl);
-  padding: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
   background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border: var(--border-brutal);
+  box-shadow: var(--shadow-brutal-sm);
 }
 
 .breadcrumb-item {
@@ -187,16 +202,19 @@ watch(() => route.params.path, updateContent, { immediate: true });
   gap: var(--spacing-xs);
   color: var(--color-text-secondary);
   text-decoration: none;
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: 0.75rem;
+  font-weight: 700;
   padding: var(--spacing-xs) var(--spacing-sm);
-  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   transition: all 0.15s ease;
+  border: 2px solid transparent;
 }
 
 .breadcrumb-item:hover {
-  color: var(--color-accent);
-  background-color: var(--color-accent-light);
+  color: var(--color-text-primary);
+  background-color: var(--color-yellow);
+  border-color: var(--color-border);
   text-decoration: none;
 }
 
@@ -207,8 +225,13 @@ watch(() => route.params.path, updateContent, { immediate: true });
 
 .breadcrumb-current {
   color: var(--color-text-primary);
-  font-weight: 600;
-  font-size: 0.875rem;
+  font-weight: 800;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: var(--color-accent);
+  color: #1a1a1a;
+  padding: var(--spacing-xs) var(--spacing-sm);
 }
 
 .content-wrapper {
@@ -218,8 +241,8 @@ watch(() => route.params.path, updateContent, { immediate: true });
 /* Directory View */
 .directory-view {
   background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border: var(--border-brutal);
+  box-shadow: var(--shadow-brutal);
   padding: var(--spacing-2xl);
 }
 
@@ -229,82 +252,125 @@ watch(() => route.params.path, updateContent, { immediate: true });
   gap: var(--spacing-lg);
   margin-bottom: var(--spacing-2xl);
   padding-bottom: var(--spacing-xl);
-  border-bottom: 2px solid var(--color-border);
+  border-bottom: var(--border-brutal);
 }
 
 .directory-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 64px;
-  height: 64px;
-  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
-  color: white;
-  border-radius: var(--radius-lg);
+  width: 72px;
+  height: 72px;
+  background: var(--color-accent);
+  color: #1a1a1a;
+  border: var(--border-brutal);
+  box-shadow: var(--shadow-brutal-sm);
   flex-shrink: 0;
+}
+
+.directory-info {
+  flex: 1;
 }
 
 .directory-title {
   font-size: 2rem;
-  font-weight: 800;
+  font-weight: 900;
   margin: 0 0 var(--spacing-xs) 0;
   letter-spacing: -0.02em;
+  text-transform: uppercase;
 }
 
 .directory-subtitle {
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   color: var(--color-text-tertiary);
   margin: 0;
-  font-weight: 500;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .file-list {
   display: grid;
-  gap: var(--spacing-xs);
+  gap: var(--spacing-md);
 }
 
 .file-item {
   display: flex;
-  align-items: center;
-  padding: var(--spacing-md) var(--spacing-lg);
-  gap: var(--spacing-md);
-  border-radius: var(--radius-md);
   text-decoration: none;
   color: var(--color-text-secondary);
   transition: all 0.15s ease;
-  border: 1px solid transparent;
+  background-color: var(--color-background);
+  border: var(--border-brutal-thin);
+  box-shadow: var(--shadow-brutal-sm);
+  overflow: hidden;
 }
 
 .file-item:hover {
-  background-color: var(--color-accent-light);
-  border-color: var(--color-accent);
+  transform: translate(-3px, -3px);
+  box-shadow: var(--shadow-brutal);
   text-decoration: none;
-  transform: translateX(4px);
+}
+
+.file-item:active {
+  transform: translate(1px, 1px);
+  box-shadow: none;
+}
+
+.file-item-stripe {
+  width: 6px;
+  flex-shrink: 0;
+}
+
+.file-orange .file-item-stripe { background-color: var(--color-accent); }
+.file-purple .file-item-stripe { background-color: var(--color-purple); }
+.file-cyan .file-item-stripe { background-color: var(--color-cyan); }
+.file-pink .file-item-stripe { background-color: var(--color-pink); }
+.file-lime .file-item-stripe { background-color: var(--color-lime); }
+.file-yellow .file-item-stripe { background-color: var(--color-yellow); }
+
+.file-item-content {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-md) var(--spacing-lg);
+  gap: var(--spacing-md);
+  flex: 1;
 }
 
 .file-item-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  background-color: var(--color-background);
-  border-radius: var(--radius-sm);
-  color: var(--color-text-tertiary);
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-surface);
+  border: var(--border-brutal-thin);
+  color: var(--color-text-primary);
   flex-shrink: 0;
   transition: all 0.15s ease;
 }
 
 .file-item:hover .file-item-icon {
-  background-color: var(--color-accent);
-  color: white;
+  transform: rotate(-3deg);
 }
 
 .file-name {
   flex: 1;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-text-primary);
   font-size: 0.9375rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.file-type {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--color-text-tertiary);
+  background-color: var(--color-surface);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border: 2px solid var(--color-border);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .file-arrow {
@@ -324,8 +390,8 @@ watch(() => route.params.path, updateContent, { immediate: true });
 /* File View (Markdown) */
 .file-view {
   background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border: var(--border-brutal);
+  box-shadow: var(--shadow-brutal);
   padding: var(--spacing-2xl);
 }
 
@@ -342,14 +408,16 @@ watch(() => route.params.path, updateContent, { immediate: true });
   margin-top: 2em;
   margin-bottom: 0.75em;
   padding-bottom: 0.5em;
-  border-bottom: 2px solid var(--color-border);
+  border-bottom: var(--border-brutal-thin);
   color: var(--color-text-primary);
-  font-weight: 700;
+  font-weight: 900;
   letter-spacing: -0.02em;
+  text-transform: uppercase;
 }
 
 .markdown-content :deep(h1) {
   font-size: 2.25rem;
+  border-bottom-width: 3px;
 }
 
 .markdown-content :deep(h2) {
@@ -358,7 +426,6 @@ watch(() => route.params.path, updateContent, { immediate: true });
 
 .markdown-content :deep(h3) {
   font-size: 1.5rem;
-  border-bottom: 1px solid var(--color-border);
 }
 
 .markdown-content :deep(h4) {
@@ -373,35 +440,35 @@ watch(() => route.params.path, updateContent, { immediate: true });
 
 .markdown-content :deep(a) {
   color: var(--color-accent);
-  font-weight: 600;
-  text-decoration: none;
-  border-bottom: 1px solid var(--color-accent-subtle);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
   transition: all 0.15s ease;
 }
 
 .markdown-content :deep(a:hover) {
   color: var(--color-accent-hover);
-  border-bottom-color: var(--color-accent);
+  background-color: var(--color-accent-light);
 }
 
 .markdown-content :deep(code) {
-  background-color: var(--color-accent-light);
+  background-color: var(--color-background);
   color: var(--color-accent);
   padding: 0.2em 0.5em;
-  border-radius: var(--radius-sm);
   font-size: 0.9em;
-  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Droid Sans Mono', 'Source Code Pro', monospace;
-  font-weight: 500;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+  font-weight: 600;
+  border: 2px solid var(--color-border);
 }
 
 .markdown-content :deep(pre) {
   background-color: var(--color-background);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border: var(--border-brutal);
+  box-shadow: var(--shadow-brutal-sm);
   padding: var(--spacing-lg);
   margin: 1.5em 0;
   overflow-x: auto;
-  box-shadow: var(--shadow-sm);
 }
 
 .markdown-content :deep(pre code) {
@@ -409,17 +476,18 @@ watch(() => route.params.path, updateContent, { immediate: true });
   padding: 0;
   border: none;
   color: var(--color-text-primary);
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .markdown-content :deep(blockquote) {
-  border-left: 4px solid var(--color-accent);
+  border-left: 6px solid var(--color-accent);
   margin: 1.5em 0;
   padding: 1em 1.5em;
   color: var(--color-text-secondary);
   background-color: var(--color-accent-light);
-  border-radius: var(--radius-sm);
-  font-style: italic;
+  font-weight: 500;
+  border: var(--border-brutal-thin);
+  border-left: 6px solid var(--color-accent);
 }
 
 .markdown-content :deep(ul),
@@ -430,10 +498,16 @@ watch(() => route.params.path, updateContent, { immediate: true });
 
 .markdown-content :deep(li) {
   margin-bottom: 0.5em;
+  font-weight: 500;
+}
+
+.markdown-content :deep(li::marker) {
+  color: var(--color-accent);
+  font-weight: 800;
 }
 
 .markdown-content :deep(strong) {
-  font-weight: 700;
+  font-weight: 800;
   color: var(--color-text-primary);
 }
 
@@ -441,26 +515,28 @@ watch(() => route.params.path, updateContent, { immediate: true });
   width: 100%;
   border-collapse: collapse;
   margin: 1.5em 0;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  overflow: hidden;
+  border: var(--border-brutal);
+  box-shadow: var(--shadow-brutal-sm);
 }
 
 .markdown-content :deep(th),
 .markdown-content :deep(td) {
   padding: var(--spacing-md);
   text-align: left;
-  border-bottom: 1px solid var(--color-border);
+  border: 2px solid var(--color-border);
 }
 
 .markdown-content :deep(th) {
-  background-color: var(--color-accent-light);
-  color: var(--color-accent);
-  font-weight: 700;
+  background-color: var(--color-accent);
+  color: #1a1a1a;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.875rem;
 }
 
-.markdown-content :deep(tr:last-child td) {
-  border-bottom: none;
+.markdown-content :deep(tr:nth-child(even)) {
+  background-color: var(--color-background);
 }
 
 /* Not Found View */
@@ -468,52 +544,61 @@ watch(() => route.params.path, updateContent, { immediate: true });
   text-align: center;
   padding: var(--spacing-3xl);
   background-color: var(--color-surface);
-  border: 2px dashed var(--color-border);
-  border-radius: var(--radius-lg);
+  border: var(--border-brutal);
+  box-shadow: var(--shadow-brutal);
 }
 
 .not-found-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 96px;
-  height: 96px;
+  width: 100px;
+  height: 100px;
   margin-bottom: var(--spacing-lg);
-  color: var(--color-text-tertiary);
-  opacity: 0.5;
+  color: var(--color-danger);
+  background-color: var(--color-background);
+  border: var(--border-brutal);
 }
 
 .not-found h1 {
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 900;
   margin-bottom: var(--spacing-sm);
+  text-transform: uppercase;
 }
 
 .not-found p {
   color: var(--color-text-tertiary);
   margin-bottom: var(--spacing-xl);
   font-size: 1rem;
+  font-weight: 500;
 }
 
 .back-home-btn {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-sm);
-  font-weight: 600;
+  font-weight: 800;
   padding: var(--spacing-md) var(--spacing-xl);
-  border-radius: var(--radius-md);
   background-color: var(--color-accent);
-  color: white;
+  color: #1a1a1a;
   text-decoration: none;
+  border: var(--border-brutal);
+  box-shadow: var(--shadow-brutal);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   transition: all 0.15s ease;
-  box-shadow: var(--shadow-sm);
 }
 
 .back-home-btn:hover {
-  background-color: var(--color-accent-hover);
+  transform: translate(-3px, -3px);
+  box-shadow: var(--shadow-brutal-lg);
   text-decoration: none;
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+}
+
+.back-home-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
 }
 
 @media (max-width: 768px) {
@@ -525,6 +610,10 @@ watch(() => route.params.path, updateContent, { immediate: true });
   .directory-header {
     flex-direction: column;
     align-items: flex-start;
+  }
+  
+  .directory-title {
+    font-size: 1.5rem;
   }
   
   .markdown-content {
@@ -541,6 +630,27 @@ watch(() => route.params.path, updateContent, { immediate: true });
   
   .markdown-content :deep(h3) {
     font-size: 1.25rem;
+  }
+  
+  .file-item-content {
+    flex-wrap: wrap;
+  }
+  
+  .file-name {
+    flex: 1 1 100%;
+    order: 1;
+  }
+  
+  .file-item-icon {
+    order: 0;
+  }
+  
+  .file-type {
+    order: 2;
+  }
+  
+  .file-arrow {
+    order: 3;
   }
 }
 </style>

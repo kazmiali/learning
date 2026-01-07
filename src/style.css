@@ -1,66 +1,49 @@
+/* Neo Brutalism Design System */
+/* Light Mode (Default) */
 :root {
   /* Font & Typography */
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.6;
-  font-weight: 400;
+  font-weight: 500;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* Light Mode Neomorphism Colors */
-  --color-background: #E0E5EC;
-  --color-surface: #E0E5EC;
-  --color-surface-elevated: #E0E5EC;
-  --color-border: #E0E5EC;
-  --color-border-light: #E0E5EC;
-  --color-text-primary: #2D3748;
-  --color-text-secondary: #4A5568;
-  --color-text-tertiary: #718096;
-  --color-accent: #8B5CF6;
-  --color-accent-hover: #7C3AED;
-  --color-accent-light: #EDE9FE;
-  --color-accent-subtle: #F5F3FF;
-  --color-success: #10B981;
-  --color-warning: #F59E0B;
-  --color-danger: #EF4444;
+  /* Neo Brutalism Colors - Light Mode */
+  --color-background: #FFFBEB;
+  --color-surface: #FFFFFF;
+  --color-surface-elevated: #FFFFFF;
+  --color-border: #1a1a1a;
+  --color-border-light: #1a1a1a;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #333333;
+  --color-text-tertiary: #666666;
   
-  /* Neomorphism Shadows - Light Mode */
-  --neomorph-light: #FFFFFF;
-  --neomorph-dark: #A3B1C6;
-  --shadow-sm: 3px 3px 6px var(--neomorph-dark), -3px -3px 6px var(--neomorph-light);
-  --shadow-inset: inset 3px 3px 6px var(--neomorph-dark), inset -3px -3px 6px var(--neomorph-light);
-  --shadow-md: 5px 5px 10px var(--neomorph-dark), -5px -5px 10px var(--neomorph-light);
-  --shadow-lg: 8px 8px 16px var(--neomorph-dark), -8px -8px 16px var(--neomorph-light);
-  --shadow-xl: 12px 12px 24px var(--neomorph-dark), -12px -12px 24px var(--neomorph-light);
-
-  /* Dark Mode Neomorphism Colors (prefers-color-scheme) */
-  @media (prefers-color-scheme: dark) {
-    --color-background: #1E1E1E;
-    --color-surface: #1E1E1E;
-    --color-surface-elevated: #1E1E1E;
-    --color-border: #1E1E1E;
-    --color-border-light: #1E1E1E;
-    --color-text-primary: #E2E8F0;
-    --color-text-secondary: #CBD5E1;
-    --color-text-tertiary: #94A3B8;
-    --color-accent: #A78BFA;
-    --color-accent-hover: #C4B5FD;
-    --color-accent-light: #2E1065;
-    --color-accent-subtle: #1E1B4B;
-    --color-success: #34D399;
-    --color-warning: #FBBF24;
-    --color-danger: #F87171;
-    
-    /* Neomorphism Shadows - Dark Mode */
-    --neomorph-light: #2D2D2D;
-    --neomorph-dark: #0F0F0F;
-    --shadow-sm: 3px 3px 6px var(--neomorph-dark), -3px -3px 6px var(--neomorph-light);
-    --shadow-inset: inset 3px 3px 6px var(--neomorph-dark), inset -3px -3px 6px var(--neomorph-light);
-    --shadow-md: 5px 5px 10px var(--neomorph-dark), -5px -5px 10px var(--neomorph-light);
-    --shadow-lg: 8px 8px 16px var(--neomorph-dark), -8px -8px 16px var(--neomorph-light);
-    --shadow-xl: 12px 12px 24px var(--neomorph-dark), -12px -12px 24px var(--neomorph-light);
-  }
+  /* Bold Accent Colors */
+  --color-accent: #FF6B35;
+  --color-accent-hover: #E85A2A;
+  --color-accent-light: #FFF0EB;
+  --color-accent-subtle: #FFF5F0;
+  --color-success: #22C55E;
+  --color-warning: #FBBF24;
+  --color-danger: #EF4444;
+  --color-purple: #8B5CF6;
+  --color-cyan: #06B6D4;
+  --color-pink: #EC4899;
+  --color-lime: #84CC16;
+  --color-yellow: #FACC15;
+  
+  /* Neo Brutalism Shadows */
+  --shadow-brutal: 4px 4px 0px #1a1a1a;
+  --shadow-brutal-sm: 2px 2px 0px #1a1a1a;
+  --shadow-brutal-md: 6px 6px 0px #1a1a1a;
+  --shadow-brutal-lg: 8px 8px 0px #1a1a1a;
+  --shadow-brutal-hover: 6px 6px 0px #1a1a1a;
+  
+  /* Border */
+  --border-brutal: 3px solid #1a1a1a;
+  --border-brutal-thin: 2px solid #1a1a1a;
 
   /* Sizing & Spacing */
   --spacing-xs: 4px;
@@ -70,14 +53,67 @@
   --spacing-xl: 32px;
   --spacing-2xl: 48px;
   --spacing-3xl: 64px;
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --radius-xl: 20px;
+  --radius-none: 0px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
   --content-width: 1200px;
   --sidebar-width: 280px;
-  --backdrop-light: rgba(255, 255, 255, 0.8);
-  --backdrop-dark: rgba(15, 23, 42, 0.8);
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+  --color-background: #1a1a1a;
+  --color-surface: #2d2d2d;
+  --color-surface-elevated: #3d3d3d;
+  --color-border: #FFFBEB;
+  --color-border-light: #FFFBEB;
+  --color-text-primary: #FFFBEB;
+  --color-text-secondary: #E5E5E5;
+  --color-text-tertiary: #A3A3A3;
+  
+  --color-accent: #FF8C5A;
+  --color-accent-hover: #FFA07A;
+  --color-accent-light: #3d2d2d;
+  --color-accent-subtle: #2d2525;
+  
+  --shadow-brutal: 4px 4px 0px #FFFBEB;
+  --shadow-brutal-sm: 2px 2px 0px #FFFBEB;
+  --shadow-brutal-md: 6px 6px 0px #FFFBEB;
+  --shadow-brutal-lg: 8px 8px 0px #FFFBEB;
+  --shadow-brutal-hover: 6px 6px 0px #FFFBEB;
+  
+  --border-brutal: 3px solid #FFFBEB;
+  --border-brutal-thin: 2px solid #FFFBEB;
+}
+
+/* System preference fallback */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-background: #1a1a1a;
+    --color-surface: #2d2d2d;
+    --color-surface-elevated: #3d3d3d;
+    --color-border: #FFFBEB;
+    --color-border-light: #FFFBEB;
+    --color-text-primary: #FFFBEB;
+    --color-text-secondary: #E5E5E5;
+    --color-text-tertiary: #A3A3A3;
+    
+    --color-accent: #FF8C5A;
+    --color-accent-hover: #FFA07A;
+    --color-accent-light: #3d2d2d;
+    --color-accent-subtle: #2d2525;
+    
+    --shadow-brutal: 4px 4px 0px #FFFBEB;
+    --shadow-brutal-sm: 2px 2px 0px #FFFBEB;
+    --shadow-brutal-md: 6px 6px 0px #FFFBEB;
+    --shadow-brutal-lg: 8px 8px 0px #FFFBEB;
+    --shadow-brutal-hover: 6px 6px 0px #FFFBEB;
+    
+    --border-brutal: 3px solid #FFFBEB;
+    --border-brutal-thin: 2px solid #FFFBEB;
+  }
 }
 
 *,
@@ -92,6 +128,7 @@ body {
   background-color: var(--color-background);
   color: var(--color-text-secondary);
   min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #app {
@@ -111,37 +148,89 @@ main {
 a {
   color: var(--color-accent);
   text-decoration: none;
-  transition: color 0.15s ease;
+  font-weight: 600;
+  transition: all 0.15s ease;
 }
 
 a:hover {
   color: var(--color-accent-hover);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--color-text-primary);
-  font-weight: 700;
-  line-height: 1.2;
+  font-weight: 800;
+  line-height: 1.1;
   margin-bottom: var(--spacing-md);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
 }
 
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.5rem; }
+h1 { font-size: 3rem; }
+h2 { font-size: 2.25rem; }
+h3 { font-size: 1.75rem; }
 h4 { font-size: 1.25rem; }
 
 @media (max-width: 768px) {
-  h1 { font-size: 2rem; }
+  h1 { font-size: 2.25rem; }
   h2 { font-size: 1.75rem; }
   h3 { font-size: 1.25rem; }
 }
 
 .container {
-    width: 100%;
-    max-width: var(--content-width);
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: var(--spacing-lg);
-    padding-right: var(--spacing-lg);
+  width: 100%;
+  max-width: var(--content-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-lg);
+  padding-right: var(--spacing-lg);
+}
+
+/* Utility Classes */
+.brutal-box {
+  background-color: var(--color-surface);
+  border: var(--border-brutal);
+  box-shadow: var(--shadow-brutal);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.brutal-box:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-brutal-hover);
+}
+
+.brutal-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-xl);
+  background-color: var(--color-accent);
+  color: #1a1a1a;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: var(--border-brutal);
+  box-shadow: var(--shadow-brutal);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.brutal-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-brutal-hover);
+  text-decoration: none;
+}
+
+.brutal-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--color-accent);
+  color: #1a1a1a;
 }
